@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership & Personal Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        .form-group {
+            margin: 15px 0;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        select, input[type="text"], input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .hidden {
+            display: none;
+        }
+        .button {
+            display: block;
+            width: 100%;
+            margin: 20px 0;
+            padding: 10px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Membership & Personal Information</h2>
+        <form>
+            <!-- Question 1 -->
+            <div class="form-group">
+                <label>Are you a registered member of the church?</label>
+                <select id="registeredMember" onchange="toggleRegistrationQuestion()">
+                    <option value="">Select an option</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+
+            <!-- Question 2 (conditionally displayed) -->
+            <div class="form-group hidden" id="likeToRegister">
+                <label>Would you like to be a registered member?</label>
+                <select>
+                    <option value="">Select an option</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="form-group">
+                <label>As a church, we would like to serve our congregation better. Providing your identification information would be helpful for us to reach out to you with ease.</label>
+                <select id="provideInfo" onchange="toggleContactInfo()">
+                    <option value="">Select an option</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+
+            <!-- Contact Information (conditionally displayed) -->
+            <div id="contactInfo" class="hidden">
+                <div class="form-group">
+                    <label>Full Name:</label>
+                    <input type="text" name="full_name" placeholder="Your full name">
+                </div>
+                <div class="form-group">
+                    <label>What do you do for a living?</label>
+                    <input type="text" name="occupation" placeholder="Your occupation">
+                </div>
+                <div class="form-group">
+                    <label>Phone Number:</label>
+                    <input type="tel" name="phone_number" placeholder="Your phone number">
+                </div>
+            </div>
+
+            <button type="submit" class="button">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        // Show/hide "Would you like to be a registered member?" question
+        function toggleRegistrationQuestion() {
+            const registeredMember = document.getElementById("registeredMember").value;
+            const likeToRegister = document.getElementById("likeToRegister");
+            if (registeredMember === "no") {
+                likeToRegister.classList.remove("hidden");
+            } else {
+                likeToRegister.classList.add("hidden");
+            }
+        }
+
+        // Show/hide contact information
+        function toggleContactInfo() {
+            const provideInfo = document.getElementById("provideInfo").value;
+            const contactInfo = document.getElementById("contactInfo");
+            if (provideInfo === "yes") {
+                contactInfo.classList.remove("hidden");
+            } else {
+                contactInfo.classList.add("hidden");
+            }
+        }
+    </script>
+</body>
+</html>
