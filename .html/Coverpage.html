@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congregation Survey</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        .button {
+            display: block;
+            width: 100%;
+            margin: 20px 0;
+            padding: 10px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .button:hover {
+            background: #45a049;
+        }
+        .form-group {
+            margin: 15px 0;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Page 1 -->
+    <div class="container" id="page1">
+        <h1>Congregation Survey</h1>
+        <p>Dear Beloved,</p>
+        <p>We value your feedback and would love to hear about your experiences and involvement in our church community. This survey will help us understand your needs and improve our services, programs, and community-building efforts. We encourage anyone aged 16 years and above to take part in this survey.</p>
+        <p>The survey should take about 10 minutes to complete, and your responses will be kept confidential. Your input is crucial for our growth and to better serve our congregation.</p>
+        <p>Thank you for your time and participation!</p>
+        <p>Blessings,</p>
+        <p><strong>Pastor Charles Mugisha</strong></p>
+        <a class="button" onclick="showPage(2)">Start Survey</a>
+    </div>
+
+    <!-- Page 2 -->
+    <div class="container" id="page2" style="display: none;">
+        <h2>Consent to Participate</h2>
+        <p>By proceeding with this survey, you acknowledge that you have read and understood the information provided above and consent to participate in this survey.</p>
+        <a class="button" onclick="showPage(3)">I Agree</a>
+    </div>
+
+    <!-- Page 3 -->
+    <div class="container" id="page3" style="display: none;">
+        <h2>Membership & Personal Information</h2>
+        <form>
+            <div class="form-group">
+                <label>Are you a registered member of the church?</label>
+                <input type="text" name="registered_member" placeholder="Yes or No">
+            </div>
+            <div class="form-group">
+                <label>Would you like to be a registered member?</label>
+                <input type="text" name="like_to_register" placeholder="Yes or No">
+            </div>
+            <p>As a church, we would like to serve our congregation better. Providing your identification information would be helpful for us to reach out to you with ease.</p>
+            <div class="form-group">
+                <label>Would you be willing to provide your name and contact details?</label>
+                <input type="text" name="willing_to_provide" placeholder="Yes or No">
+            </div>
+            <div class="form-group">
+                <label>Full Name:</label>
+                <input type="text" name="full_name" placeholder="Your full name">
+            </div>
+            <div class="form-group">
+                <label>What do you do for a living?</label>
+                <input type="text" name="occupation" placeholder="Your occupation">
+            </div>
+            <div class="form-group">
+                <label>Phone Number:</label>
+                <input type="tel" name="phone_number" placeholder="Your phone number">
+            </div>
+            <button type="submit" class="button">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function showPage(page) {
+            document.getElementById('page1').style.display = 'none';
+            document.getElementById('page2').style.display = 'none';
+            document.getElementById('page3').style.display = 'none';
+
+            document.getElementById('page' + page).style.display = 'block';
+        }
+    </script>
+</body>
+</html>
