@@ -7,85 +7,65 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
             background-color: #f9f9f9;
             color: #333;
+            margin: 0;
+            padding: 0;
         }
         .container {
             max-width: 600px;
-            margin: 20px auto;
+            margin: 50px auto;
             padding: 20px;
             background: #fff;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        h1, h2 {
             text-align: center;
+        }
+        h1, p {
+            margin-bottom: 20px;
         }
         .button {
-            display: block;
-            width: 100%;
-            margin: 20px 0;
-            padding: 10px;
-            background: #4CAF50;
-            color: white;
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #4CAF50;
             border: none;
             border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
             text-decoration: none;
-            font-size: 16px;
+            cursor: pointer;
         }
         .button:hover {
-            background: #45a049;
+            background-color: #45a049;
         }
-        .form-group {
-            margin: 15px 0;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        input[type="text"], input[type="tel"] {
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 14px;
+        .hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
     <!-- Page 1 -->
     <div class="container" id="page1">
-        <h1>Congregation Survey</h1>
-        <p>Dear Beloved,</p>
-        <p>We value your feedback and would love to hear about your experiences and involvement in our church community. This survey will help us understand your needs and improve our services, programs, and community-building efforts. We encourage anyone aged 16 years and above to take part in this survey.</p>
-        <p>The survey should take about 10 minutes to complete, and your responses will be kept confidential. Your input is crucial for our growth and to better serve our congregation.</p>
+        <h1>Dear Beloved,</h1>
+        <p>We value your feedback and would love to hear about your experiences and involvement in our church community. This survey will help us understand your needs and improve our services, programs, and community-building efforts.</p>
+        <p>We encourage anyone aged 16 years and above to take part in this survey. The survey should take about 10 minutes to complete, and your responses will be kept confidential. Your input is crucial for our growth and to better serve our congregation.</p>
         <p>Thank you for your time and participation!</p>
-        <p>Blessings,</p>
-        <p><strong>Pastor Charles Mugisha</strong></p>
-        <a class="button" onclick="showPage(2)">Start Survey</a>
+        <p><strong>Blessings,<br>Pastor Charles Mugisha</strong></p>
+        <button class="button" onclick="showPage2()">Start</button>
     </div>
 
     <!-- Page 2 -->
-    <div class="container" id="page2" style="display: none;">
-        <h2>Consent to Participate</h2>
+    <div class="container hidden" id="page2">
+        <h1>Consent to Participate</h1>
         <p>By proceeding with this survey, you acknowledge that you have read and understood the information provided above and consent to participate in this survey.</p>
-        <a class="button" onclick="showPage(3)">I Agree</a>
+        <button class="button" onclick="alert('Thank you for agreeing to participate!')">I Agree</button>
     </div>
 
     <script>
-        function showPage(page) {
-            document.getElementById('page1').style.display = 'none';
-            document.getElementById('page2').style.display = 'none';
-            document.getElementById('page3').style.display = 'none';
-
-            document.getElementById('page' + page).style.display = 'block';
+        // Function to display page 2 and hide page 1
+        function showPage2() {
+            document.getElementById('page1').classList.add('hidden');
+            document.getElementById('page2').classList.remove('hidden');
         }
     </script>
 </body>
